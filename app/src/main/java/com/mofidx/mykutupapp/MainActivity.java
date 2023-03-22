@@ -9,12 +9,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -22,10 +26,12 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import java.util.concurrent.TimeUnit;
 
 
 public class MainActivity extends AppCompatActivity {
 
+ImageView img90main;
     ShapeableImageView book1, book2, book3, book4 , book5;
 
     @SuppressLint("MissingInflatedId")
@@ -33,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        img90main = findViewById(R.id.sayac90main);
+
+
+        img90main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goto1 = new Intent(MainActivity.this, sayac.class);
+                startActivity(goto1);
+            }
+        });
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override

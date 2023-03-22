@@ -7,13 +7,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
 public class Splashscreen extends AppCompatActivity {
-TextView textView;
+TextView textView2;
 
+ProgressBar progressBar2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +23,15 @@ TextView textView;
         setContentView(R.layout.activity_splashscreen);
 
 
-        textView =findViewById(R.id.animationtxt);
+        progressBar2 =findViewById(R.id.progressBar2);
+        textView2 =findViewById(R.id.txt2);
 
 
-        textView.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+        progressBar2.setMax(100);
+        progressBar2.setScaleY(2f);
+
+        progressAnimaion();
+
 // This method is used so that your splash activity can cover the entire screen.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -39,9 +46,16 @@ TextView textView;
                 startActivity(i); // invoke the SecondActivity.
                 finish(); // the current activity will get finished.
             }
-        }, 4000);
+        }, 5000);
 
 
+
+    }
+
+    private void progressAnimaion() {
+        ProgressBarAnimationForSplashscreen progressBarAnimationForSplashscreen = new ProgressBarAnimationForSplashscreen(progressBar2  ,textView2, 0f,100f);
+        progressBarAnimationForSplashscreen.setDuration(500);
+        progressBar2.setAnimation(progressBarAnimationForSplashscreen);
 
     }
 }

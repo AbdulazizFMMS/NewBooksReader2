@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">تعلم كيف توقف الإباحية</string>
+    <string name="sayac_name">تحدي ال 90 يوم</string>
 
-<!--orjinal-->
+    <!--orjinal-->
     <string name="AdmobId">ca-app-pub-1564784655727854~5701507914</string>
     <string name="mybanner">ca-app-pub-1564784655727854/2429026055</string>
-<!--orjinal-->
+    <!--orjinal-->
     <string name="myinterstitial">ca-app-pub-1564784655727854/8000916932</string>
+
+
+
 
 
 
