@@ -3,9 +3,12 @@ package com.mofidx.mykutupapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.animation.ObjectAnimator;
-import android.app.AlertDialog;
+
+import androidx.appcompat.app.AlertDialog.Builder;
+import androidx.appcompat.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.Html;
@@ -74,7 +77,12 @@ btntarihisec.setOnClickListener(new View.OnClickListener() {
     }
 });
 
-
+btnsifirla.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAlertDialog(R.layout.dialog_postive_layout);
+            }
+        });
 
 
 
@@ -101,7 +109,13 @@ btntarihisec.setOnClickListener(new View.OnClickListener() {
 //        }.start();
 
 
+
+
+
+
         //onCreate is here
+
+
     }
 
 
@@ -133,15 +147,31 @@ btntarihisec.setOnClickListener(new View.OnClickListener() {
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        int style = AlertDialog.THEME_HOLO_LIGHT;
 
-        datePickerDialog = new DatePickerDialog(this , style , dateSetListener , year , month , day);
+
+        datePickerDialog = new DatePickerDialog(this , androidx.appcompat.R.style.Theme_AppCompat_DayNight_Dialog_MinWidth , dateSetListener , year , month , day);
         // لجعل اقصى تاريخ هو تاريخ اليوم نستعمل الدالة
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
         //        // لجعل اقل تاريخ هو تاريخ اليوم نستعمل الدالة
 //        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
     }
 
+
+    private void showAlertDialog(int layout){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(sayac.this);
+        View layoutView = getLayoutInflater().inflate(layout, null);
+        Button dialogButton = layoutView.findViewById(R.id.btnDialog);
+        dialogBuilder.setView(layoutView);
+        AlertDialog alertDialog  =  dialogBuilder.create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+    }
 
 
 }
