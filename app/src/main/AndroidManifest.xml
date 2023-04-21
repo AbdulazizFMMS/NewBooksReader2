@@ -2,10 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
     <application
+        android:name=".ADS.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,10 +19,29 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyKutupApp"
-        tools:targetApi="31">
+        tools:targetApi="33">
+
+        <activity
+            android:name=".SoundActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Mysayac"/>
+        <activity
+            android:name=".NasheedActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Mysayac"/>
+
+        <activity
+            android:name=".RecyclerviewKonular"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"/>
+        <activity
+            android:name=".ActivityZalah"
+            android:exported="false"
+            android:theme="@style/Theme.Mysayac" />
         <activity
             android:name=".sayac"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Mysayac">
         </activity>
         <activity
             android:name=".Splashscreen"
@@ -30,15 +54,31 @@
         </activity>
         <activity
             android:name=".PdfReader"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".BookDetails"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
+        <activity
+            android:name=".MainActivityAlarm"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".AddReminderActivity"
+            android:label="@string/title_activity_add_reminder"
+            android:parentActivityName=".MainActivityAlarm"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <provider
+            android:name=".data.AlarmReminderProvider"
+            android:authorities="com.mofidx.mykutupapp"
+            android:exported="false" />
+
+        <service
+            android:name=".reminder.ReminderAlarmService"
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

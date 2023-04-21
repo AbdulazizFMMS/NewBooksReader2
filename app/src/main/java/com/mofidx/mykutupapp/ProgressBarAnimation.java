@@ -26,7 +26,7 @@ public class ProgressBarAnimation extends Animation {
         super.applyTransformation(interpolatedTime, t);
         value = from + (to - from) * interpolatedTime;
         progressBar.setProgress((int) value);
-        textView.setText((int) value+"");
+        textView.setText((int) value+"/90");
     }
 
 }

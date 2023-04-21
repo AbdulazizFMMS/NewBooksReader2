@@ -99,15 +99,13 @@ public class BookDetails extends AppCompatActivity {
             readbookbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(BookDetails.this, PdfReader.class);
-                    intent.putExtra("openbook", 0);
-
                     if (mInterstitialAd != null) {
                         mInterstitialAd.show(BookDetails.this);
                     } else {
                         Log.d("TAG", "The interstitial ad wasn't ready yet.");
                     }
-
+                    Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
+                    intent.putExtra("openbook", 0);
                     startActivity(intent);
                 }
             });
@@ -117,7 +115,7 @@ public class BookDetails extends AppCompatActivity {
         if (image == 1) {
             bookimage.setImageResource(R.drawable.a2);
             name.setText("سبیل التعافي من إدمان الإباحیة");
-            desc.setText("قدم لكم - في البدایة - تجربة لأحد المتخصصین في علاج إدمان الإباحیة و ھو شاب أمریكي یدعى \n" +
+            desc.setText("اقدم لكم - في البدایة - تجربة لأحد المتخصصین في علاج إدمان الإباحیة و ھو شاب أمریكي یدعى \n" +
                     "ألیكس و كان ھو نفسھ یعاني من إدمان المواد الإباحیة و كافح حتى شفي من ھذا المرض خلال \n" +
                     "عامین منذ عام ٢٠٠٨ وحتى عام ٢");
             pages.setText("110 صفحة");
@@ -125,14 +123,15 @@ public class BookDetails extends AppCompatActivity {
             readbookbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(BookDetails.this, PdfReader.class);
-                    intent.putExtra("openbook", 1);
-					                    if (mInterstitialAd != null) {
+
+                    if (mInterstitialAd != null) {
                         mInterstitialAd.show(BookDetails.this);
                     } else {
                         Log.d("TAG", "The interstitial ad wasn't ready yet.");
                     }
-					
+
+                    Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
+                    intent.putExtra("openbook", 1);
                     startActivity(intent);
                 }
             });
@@ -150,21 +149,21 @@ public class BookDetails extends AppCompatActivity {
                     "أنا أعرف ذلك من تجربتي الشخصية.\n" +
                     "منذ 3 سنوات كنت واحدا من أكبر مدمني الاباحية.\n" +
                     "حسنًا ربما قضيت أكثر من 10 أعوام وكأنني عبد للإباحية وممارسة \n" +
-                    "العادة السرية، لقد أحببتهما كثيراً");
+                    "العادة السرية، لقد أحببتهما كثيراً...");
             pages.setText("110 صفحة");
 
             readbookbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(BookDetails.this, PdfReader.class);
-                    intent.putExtra("openbook", 2);
-					
-			        if (mInterstitialAd != null) {
+
+                    if (mInterstitialAd != null) {
                         mInterstitialAd.show(BookDetails.this);
                     } else {
                         Log.d("TAG", "The interstitial ad wasn't ready yet.");
                     }
-					
+
+                    Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
+                    intent.putExtra("openbook", 2);
                     startActivity(intent);
                 }
             });
@@ -186,14 +185,17 @@ public class BookDetails extends AppCompatActivity {
             readbookbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(BookDetails.this, PdfReader.class);
-                    intent.putExtra("openbook", 3);
-					
-					                    if (mInterstitialAd != null) {
+
+                    if (mInterstitialAd != null) {
                         mInterstitialAd.show(BookDetails.this);
                     } else {
                         Log.d("TAG", "The interstitial ad wasn't ready yet.");
                     }
+
+                    Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
+                    intent.putExtra("openbook", 3);
+					
+
 					
                     startActivity(intent);
                 }
@@ -202,7 +204,7 @@ public class BookDetails extends AppCompatActivity {
         }
         if (image == 4) {
             bookimage.setImageResource(R.drawable.a5);
-            name.setText("الخطوات السبعة للشفاء من إدمان الإباحیة");
+            name.setText(" الخطوات السبعة للشفاء\n من إدمان الإباحیة");
             desc.setText("ما ھو إدمان الإباحیة وتعریفھا ؟ \n" +
                     "لكي نفھم ما ھو إدمان الإباحیة علینا ان نعرف أولا أنه  لا یوجد تعریف إكلینیكي موحد \n" +
                     "للإدمان.\n" +
@@ -217,15 +219,18 @@ public class BookDetails extends AppCompatActivity {
             readbookbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(BookDetails.this, PdfReader.class);
-                    intent.putExtra("openbook", 4);
-                    startActivity(intent);
-					
-										                    if (mInterstitialAd != null) {
+
+                    if (mInterstitialAd != null) {
                         mInterstitialAd.show(BookDetails.this);
                     } else {
                         Log.d("TAG", "The interstitial ad wasn't ready yet.");
                     }
+
+                    Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
+                    intent.putExtra("openbook", 4);
+                    startActivity(intent);
+					
+
 					
                 }
             });

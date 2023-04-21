@@ -7,4 +7,18 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#FF9900</color>
+    <color name="yellow">#EEFF00</color>
+    <color name="green">#8CFF00</color>
+    <color name="greenextra">#19F600</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#03A9F4</color>
+    <color name="fab_pressed">#546e7a</color>
+    <color name="sifirla_pressed">#1F1F1F</color>
+    <color name="sifirla_unpressed">#3C3C3C</color>
+
+
+    <drawable name="colorbgSelect">#cc4cb8fa</drawable>
 </resources>

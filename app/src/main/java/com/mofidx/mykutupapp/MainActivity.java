@@ -1,24 +1,19 @@
 package com.mofidx.mykutupapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
+
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.content.SharedPreferences;
+
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.ImageView;
-import android.widget.TextView;
+
 
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -26,12 +21,13 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-import java.util.concurrent.TimeUnit;
+
 
 
 public class MainActivity extends AppCompatActivity {
-
-ImageView img90main;
+ImageView img90main,NewHabit , podcast;
+SharedPreferences sharedPreferences = null;
+SharedPreferences.Editor editor;
     ShapeableImageView book1, book2, book3, book4 , book5;
 
     @SuppressLint("MissingInflatedId")
@@ -41,6 +37,17 @@ ImageView img90main;
         setContentView(R.layout.activity_main);
 
         img90main = findViewById(R.id.sayac90main);
+        NewHabit = findViewById(R.id.newhabit);
+        podcast = findViewById(R.id.podcast);
+
+        sharedPreferences = getSharedPreferences("MofidxBooksReader",0);
+        podcast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent i = new Intent(MainActivity.this, SoundActivity.class);
+            startActivity(i);
+            }
+        });
 
 
         img90main.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +57,15 @@ ImageView img90main;
                 startActivity(goto1);
             }
         });
+        NewHabit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goto1 = new Intent(MainActivity.this, MainActivityAlarm.class);
+                startActivity(goto1);
+            }
+        });
+
+
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -175,8 +191,12 @@ ImageView img90main;
 //        return sb;}
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        editor = sharedPreferences.edit();
+        editor.putBoolean("isbackpressed", true);
+        editor.commit();
 
-
-
-
+    }
 }
