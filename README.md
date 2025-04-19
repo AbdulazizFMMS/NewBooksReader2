@@ -1,5 +1,4 @@
 # MyKutupApp2
-this app can read any pdf files and saving your page auto, when you come agin you can find your last page
 
 I have compiled five different books here and designed a table of contents for each one. The reader can easily return to the last section they read either by using the marker placed at the last read section or by using the button on the home page.
 
