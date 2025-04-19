@@ -68,14 +68,36 @@
     </RelativeLayout>
 
     <com.getbase.floatingactionbutton.FloatingActionButton
+        android:layout_above="@+id/relativ_Ad"
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
         android:src="@drawable/ic_add"
         app:backgroundTint="@color/colorPrimary"
         app:fabSize="normal"/>
+
+
+    <RelativeLayout
+        android:id="@+id/relativ_Ad"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Diğer UI bileşenleriniz burada olabilir -->
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/mybannerAlarm" /> <!-- Test ID, kendi ID'nizi buraya ekleyin -->
+    </RelativeLayout>
+
+
 
 </RelativeLayout>

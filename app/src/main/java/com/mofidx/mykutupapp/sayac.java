@@ -261,6 +261,7 @@ public class sayac extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 if (!text_view_progress.getText().toString().equals("0/90")) {
                     //مربع الحوار الذي يخرج بشكل مربع وفيه زر
                     showAlertDialog(R.layout.dialog_postive_layout);
@@ -325,12 +326,12 @@ public class sayac extends AppCompatActivity {
                 editor.putString("StrDatetoday", edate);
                 editor.commit();
 
-
                 if (mInterstitialAd != null) {
                     mInterstitialAd.show(sayac.this);
                 } else {
-                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
+                    Log.d("TAG", "The interstitial1 ad wasn't ready yet.");
                 }
+
 
 
                 try {
@@ -481,11 +482,7 @@ public class sayac extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (mInterstitialAd != null) {
-                    mInterstitialAd.show(sayac.this);
-                } else {
-                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
-                }
+
 
                 // نعم قم بتصفير العداد
                 btnsifirla.setBackgroundColor(getResources().getColor(R.color.sifirla_pressed));
@@ -493,6 +490,7 @@ public class sayac extends AppCompatActivity {
                 ProgressBarAnimation anim = new ProgressBarAnimation(progressBar, text_view_progress, result, 0);
                     anim.setDuration(700);
                     progressBar.startAnimation(anim);
+
 
 
                     // بداية التحدي
@@ -514,6 +512,13 @@ public class sayac extends AppCompatActivity {
 
                     // الايام المتبقية
                     txtitem223.setText("" +90); // الايام المتبقية
+
+
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(sayac.this);
+                } else {
+                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
+                }
 
                     alertDialog.dismiss();
 

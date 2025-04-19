@@ -9,8 +9,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
+
+
     <application
-        android:name=".ADS.MyApplication"
+        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,51 +23,66 @@
         android:theme="@style/Theme.MyKutupApp"
         tools:targetApi="33">
 
-        <activity
-            android:name=".SoundActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Mysayac"/>
-        <activity
-            android:name=".NasheedActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Mysayac"/>
+<!--        <activity-->
+<!--            android:hardwareAccelerated="false"-->
+<!--            android:name=".SoundActivity"-->
+<!--            android:exported="false"-->
+<!--            android:theme="@style/Theme.Mysayac"/>-->
+<!--        <activity-->
+<!--            android:hardwareAccelerated="false"-->
+<!--            android:name=".NasheedActivity"-->
+<!--            android:exported="false"-->
+<!--            android:theme="@style/Theme.Mysayac"/>-->
 
         <activity
+            android:hardwareAccelerated="false"
             android:name=".RecyclerviewKonular"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"/>
         <activity
+            android:hardwareAccelerated="false"
             android:name=".ActivityZalah"
             android:exported="false"
             android:theme="@style/Theme.Mysayac" />
         <activity
+            android:hardwareAccelerated="false"
             android:name=".sayac"
             android:exported="true"
             android:theme="@style/Theme.Mysayac">
         </activity>
+<!--        <activity-->
+<!--            android:hardwareAccelerated="false"-->
+<!--            android:name=".Splashscreen"-->
+<!--            android:exported="true">-->
+
+<!--        </activity>-->
         <activity
-            android:name=".Splashscreen"
-            android:exported="true">
+            android:hardwareAccelerated="true"
+            android:name=".PdfReader"
+            android:exported="true" />
+        <activity
+            android:hardwareAccelerated="false"
+            android:name=".BookDetails"
+            android:exported="false" />
+        <activity
+            android:hardwareAccelerated="false"
+            android:name=".MainActivity"
+            android:exported="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            
         </activity>
         <activity
-            android:name=".PdfReader"
-            android:exported="true" />
-        <activity
-            android:name=".BookDetails"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-        <activity
+            android:hardwareAccelerated="true"
             android:name=".MainActivityAlarm"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:hardwareAccelerated="false"
             android:name=".AddReminderActivity"
             android:label="@string/title_activity_add_reminder"
             android:parentActivityName=".MainActivityAlarm"

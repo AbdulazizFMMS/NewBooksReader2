@@ -7,6 +7,7 @@
     android:background="?android:attr/selectableItemBackground">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardlistviewforclick"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="3dp"
         android:layout_marginStart="3dp"

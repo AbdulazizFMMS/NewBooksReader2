@@ -63,7 +63,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="70dp"
             android:fontFamily="@font/nunito_sans_extrabold"
             android:text="اختر كتابا"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="232dp"
+            android:layout_marginBottom="282dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -98,13 +98,119 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/book5"
+                        android:layout_width="139dp"
+                        android:layout_height="205dp"
+                        app:shapeAppearanceOverlay="@style/Rounded_corners"
+                        app:srcCompat="@drawable/a5" />
+
+                    <TextView
+                        android:id="@+id/txt5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:lines="2"
+                        android:fontFamily="@font/nunito_sans_extrabold"
+                        android:text="@string/besincikitap"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/book4"
+                        android:layout_width="139dp"
+                        android:layout_height="205dp"
+                        app:shapeAppearanceOverlay="@style/Rounded_corners"
+                        app:srcCompat="@drawable/a4" />
+
+                    <TextView
+                        android:id="@+id/txt4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/nunito_sans_extrabold"
+                        android:text="@string/dorduncukitap"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/book3"
+                        android:layout_width="139dp"
+                        android:layout_height="205dp"
+                        app:shapeAppearanceOverlay="@style/Rounded_corners"
+                        app:srcCompat="@drawable/a3" />
+
+                    <TextView
+                        android:id="@+id/txt3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/nunito_sans_extrabold"
+                        android:text="@string/ucunucukitap"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/book2"
+                        android:layout_width="139dp"
+                        android:layout_height="205dp"
+                        app:shapeAppearanceOverlay="@style/Rounded_corners"
+                        app:srcCompat="@drawable/a2" />
+
+                    <TextView
+                        android:id="@+id/txt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/nunito_sans_extrabold"
+                        android:text="@string/ikincikitap"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/book1"
-                        android:layout_width="159dp"
-                        android:layout_height="225dp"
+                        android:layout_width="139dp"
+                        android:layout_height="205dp"
                         app:shapeAppearanceOverlay="@style/Rounded_corners"
                         app:srcCompat="@drawable/a1" />
 
                     <TextView
+                        android:id="@+id/txt1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -115,101 +221,6 @@
                         android:textSize="15sp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="20dp"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/book2"
-                        android:layout_width="159dp"
-                        android:layout_height="225dp"
-                        app:shapeAppearanceOverlay="@style/Rounded_corners"
-                        app:srcCompat="@drawable/a2" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="3dp"
-                        android:fontFamily="@font/nunito_sans_extrabold"
-                        android:text="سبیل التعافي من إدمان الإباحیة"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="20dp"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/book3"
-                        android:layout_width="159dp"
-                        android:layout_height="225dp"
-                        app:shapeAppearanceOverlay="@style/Rounded_corners"
-                        app:srcCompat="@drawable/a3" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="3dp"
-                        android:fontFamily="@font/nunito_sans_extrabold"
-                        android:text="كيف تقلع عن  الاباحية للأبد"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="20dp"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/book4"
-                        android:layout_width="159dp"
-                        android:layout_height="225dp"
-                        app:shapeAppearanceOverlay="@style/Rounded_corners"
-                        app:srcCompat="@drawable/a4" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="3dp"
-                        android:fontFamily="@font/nunito_sans_extrabold"
-                        android:text="هوايات وعادات كيف نحارب الإباحية"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="20dp"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/book5"
-                        android:layout_width="159dp"
-                        android:layout_height="225dp"
-                        app:shapeAppearanceOverlay="@style/Rounded_corners"
-                        app:srcCompat="@drawable/a5" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="3dp"
-                        android:fontFamily="@font/nunito_sans_extrabold"
-                        android:text="الخطوات السبعة للشفاء من إدمان الإباحیة"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
-                </LinearLayout>
 
             </LinearLayout>
 
@@ -242,7 +253,7 @@
 
 
                 <LinearLayout
-                    android:layout_margin="5dp"
+                    android:layout_marginStart="55dp"
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -284,7 +295,7 @@
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_marginStart="15dp"
                     android:orientation="vertical">
 
                     <ImageView
@@ -305,8 +316,8 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:visibility="gone"
                         android:id="@+id/podcast"
-                        android:src="@drawable/podcast"
                         android:scaleType="centerCrop"
                         android:layout_width="128dp"
                         android:layout_height="128dp">
@@ -392,21 +403,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/scrollhoriz2"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/scrollhoriz2">
+
+            <ImageView
+                android:id="@+id/imgsonokuma"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/sonokuma"
+                android:visibility="invisible" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"/>
+                android:layout_height="50dp" />
 
         </LinearLayout>
 

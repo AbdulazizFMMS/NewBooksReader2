@@ -45,6 +45,7 @@ public class RecyclerviewKonular extends AppCompatActivity {
 
     int hangikitabkonulari;
     ListView ListView;
+
     ArrayList<String> diclist = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +61,9 @@ public class RecyclerviewKonular extends AppCompatActivity {
         hangikitabkonulari= getIntent().getIntExtra("openbook",-1);
 
 
-
-
+//        editor = sharedPreferences.edit();
+//        editor.putInt("ensonhangikitabsecildi",hangikitabkonulari);
+//        editor.commit();
 
 
         if(hangikitabkonulari==0){
@@ -173,56 +175,63 @@ public class RecyclerviewKonular extends AppCompatActivity {
 
 
 
-        ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                if (hangikitabkonulari==0){
-                    editor = sharedPreferences.edit();
-                    editor.putInt(posi1_readed[position], position);
-                    editor.commit();
-                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
-                    intent1.putExtra("posi_key1", position);
-                    startActivity(intent1);
-                }
-
-                if (hangikitabkonulari==1){
-                    editor = sharedPreferences.edit();
-                    editor.putInt(posi2_readed[position], position);
-                    editor.commit();
-                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
-                    intent1.putExtra("posi_key2", position);
-                    startActivity(intent1);
-                }
-                if (hangikitabkonulari==2){
-                    editor = sharedPreferences.edit();
-                    editor.putInt(posi3_readed[position], position);
-                    editor.commit();
-                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
-                    intent1.putExtra("posi_key3", position);
-                    startActivity(intent1);
-                }
-                if (hangikitabkonulari==3){
-                    editor = sharedPreferences.edit();
-                    editor.putInt(posi4_readed[position], position);
-                    editor.commit();
-                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
-                    intent1.putExtra("posi_key4", position);
-                    startActivity(intent1);
-                }
-                if (hangikitabkonulari==4){
-                    editor = sharedPreferences.edit();
-                    editor.putInt(posi5_readed[position], position);
-                    editor.commit();
-                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
-                    intent1.putExtra("posi_key5", position);
-                    startActivity(intent1);
-                }
-
-
-
-            }
-        });
+//        ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                if (hangikitabkonulari==0){
+//                    editor = sharedPreferences.edit();
+//                    editor.putInt(posi1_readed[position], position);
+//                    editor.commit();
+//                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
+//                    intent1.putExtra("posi_key1", position);
+//                    intent1.putExtra("birsecildimi",true);
+//                    startActivity(intent1);
+//                }
+//
+//                if (hangikitabkonulari==1){
+//                    editor = sharedPreferences.edit();
+//                    editor.putInt(posi2_readed[position], position);
+//                    editor.commit();
+//                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
+//                    intent1.putExtra("posi_key2", position);
+//                    intent1.putExtra("ikisecildimi",true);
+//                    startActivity(intent1);
+//                }
+//                if (hangikitabkonulari==2){
+//                    editor = sharedPreferences.edit();
+//                    editor.putInt(posi3_readed[position], position);
+//                    editor.commit();
+//                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
+//                    intent1.putExtra("posi_key3", position);
+//                    intent1.putExtra("ucsecildimi",true);
+//
+//                    startActivity(intent1);
+//                }
+//                if (hangikitabkonulari==3){
+//                    editor = sharedPreferences.edit();
+//                    editor.putInt(posi4_readed[position], position);
+//                    editor.commit();
+//                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
+//                    intent1.putExtra("posi_key4", position);
+//                    intent1.putExtra("dortsecildimi",true);
+//
+//                    startActivity(intent1);
+//                }
+//                if (hangikitabkonulari==4){
+//                    editor = sharedPreferences.edit();
+//                    editor.putInt(posi5_readed[position], position);
+//                    editor.commit();
+//                    Intent intent1 = new Intent(RecyclerviewKonular.this, PdfReader.class);
+//                    intent1.putExtra("posi_key5", position);
+//                    intent1.putExtra("bessecildimi",true);
+//                    startActivity(intent1);
+//                }
+//
+//
+//
+//            }
+//        });
 
         ListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

@@ -19,12 +19,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.mofidx.mykutupapp.data.AlarmReminderContract;
 import com.mofidx.mykutupapp.data.AlarmReminderDbHelper;
 import com.mofidx.mykutupapp.reminder.AlarmScheduler;
 
 public class MainActivityAlarm extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
-
+    private AdView adView;
     Uri mCurrentReminderUri;
     private FloatingActionButton mAddReminderButton;
     private Toolbar mToolbar;
@@ -46,6 +48,15 @@ public class MainActivityAlarm extends AppCompatActivity implements LoaderManage
 
 
 
+        // Create a new ad view.
+        adView = findViewById(R.id.adView_alarm);
+
+//        adView.setAdSize(AdSize.BANNER);
+//        adView.setAdUnitId("ca-app-pub-3940256099942544/9214589741");
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        adView.loadAd(adRequest);
 
 
         reminderListView =  findViewById(R.id.list);

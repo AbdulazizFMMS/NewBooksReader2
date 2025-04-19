@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
@@ -13,6 +15,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.android.material.imageview.ShapeableImageView;
@@ -22,10 +26,10 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 
-
-
 public class MainActivity extends AppCompatActivity {
-ImageView img90main,NewHabit , podcast;
+ImageView img90main,NewHabit , podcast,imgsonokuma;
+int sonkitabokundu , ensonkonu,ensonkitap;
+TextView txt1,txt2,txt3,txt4,txt5;
 SharedPreferences sharedPreferences = null;
 SharedPreferences.Editor editor;
     ShapeableImageView book1, book2, book3, book4 , book5;
@@ -38,16 +42,122 @@ SharedPreferences.Editor editor;
 
         img90main = findViewById(R.id.sayac90main);
         NewHabit = findViewById(R.id.newhabit);
-        podcast = findViewById(R.id.podcast);
+//        podcast = findViewById(R.id.podcast);
+        txt1=findViewById(R.id.txt1);
+        txt2=findViewById(R.id.txt2);
+        txt3=findViewById(R.id.txt3);
+        txt4=findViewById(R.id.txt4);
+        txt5=findViewById(R.id.txt5);
+        imgsonokuma=findViewById(R.id.imgsonokuma);
+
+
+
 
         sharedPreferences = getSharedPreferences("MofidxBooksReader",0);
-        podcast.setOnClickListener(new View.OnClickListener() {
+        sonkitabokundu = sharedPreferences.getInt("sonkitabokundu",0);
+        // 0 /1 /2 /3 /4
+        ensonkitap = sharedPreferences.getInt("ensonhangikitabsecildi",-1);
+        // 0 /1 /2 /3 /4 / 5 /6 /7 /8 /9 ..........
+        ensonkonu = sharedPreferences.getInt("ensonokunankonu",-1);
+        // كود يحفظ البيانات لاستعادتها من صفحة البداية
+
+
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
-            public void onClick(View v) {
-            Intent i = new Intent(MainActivity.this, SoundActivity.class);
-            startActivity(i);
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+
+
+
+        if (sonkitabokundu>0){
+            if (sonkitabokundu==1){
+                txt1.setTextColor(getResources().getColor(R.color.green));
+                txt2.setTextColor(getResources().getColor(R.color.white));
+                txt3.setTextColor(getResources().getColor(R.color.white));
+                txt4.setTextColor(getResources().getColor(R.color.white));
+                txt5.setTextColor(getResources().getColor(R.color.white));
+            } else if (sonkitabokundu==2) {
+                txt1.setTextColor(getResources().getColor(R.color.white));
+                txt2.setTextColor(getResources().getColor(R.color.green));
+                txt3.setTextColor(getResources().getColor(R.color.white));
+                txt4.setTextColor(getResources().getColor(R.color.white));
+                txt5.setTextColor(getResources().getColor(R.color.white));
+            } else if (sonkitabokundu==3) {
+                txt1.setTextColor(getResources().getColor(R.color.white));
+                txt2.setTextColor(getResources().getColor(R.color.white));
+                txt3.setTextColor(getResources().getColor(R.color.green));
+                txt4.setTextColor(getResources().getColor(R.color.white));
+                txt5.setTextColor(getResources().getColor(R.color.white));
+            }else if (sonkitabokundu==4) {
+                txt1.setTextColor(getResources().getColor(R.color.white));
+                txt2.setTextColor(getResources().getColor(R.color.white));
+                txt3.setTextColor(getResources().getColor(R.color.white));
+                txt4.setTextColor(getResources().getColor(R.color.green));
+                txt5.setTextColor(getResources().getColor(R.color.white));
+            }else if (sonkitabokundu==5) {
+                txt1.setTextColor(getResources().getColor(R.color.white));
+                txt2.setTextColor(getResources().getColor(R.color.white));
+                txt3.setTextColor(getResources().getColor(R.color.white));
+                txt4.setTextColor(getResources().getColor(R.color.white));
+                txt5.setTextColor(getResources().getColor(R.color.green));
+            }
+
+
+        }
+
+
+        if (ensonkitap>=0){
+            imgsonokuma.setVisibility(View.VISIBLE);
+        }
+
+        imgsonokuma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                    if (ensonkitap==0){
+                        Intent intent1 = new Intent(MainActivity.this, PdfReader.class);
+                        intent1.putExtra("posi_key1", ensonkonu);
+                        startActivity(intent1);
+                    } else if (ensonkitap==1) {
+                        Intent intent1 = new Intent(MainActivity.this, PdfReader.class);
+                        intent1.putExtra("posi_key2", ensonkonu);
+                        startActivity(intent1);
+
+                    }else if (ensonkitap==2) {
+                        Intent intent1 = new Intent(MainActivity.this, PdfReader.class);
+                        intent1.putExtra("posi_key3", ensonkonu);
+                        startActivity(intent1);
+
+                    }else if (ensonkitap==3) {
+                        Intent intent1 = new Intent(MainActivity.this, PdfReader.class);
+                        intent1.putExtra("posi_key4", ensonkonu);
+                        startActivity(intent1);
+
+                    }else if (ensonkitap==4) {
+                        Intent intent1 = new Intent(MainActivity.this, PdfReader.class);
+                        intent1.putExtra("posi_key5", ensonkonu);
+                        startActivity(intent1);
+
+                    }
+
+
+
+
+
+            }
+        });
+
+//        podcast.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//            Intent i = new Intent(MainActivity.this, SoundActivity.class);
+//            startActivity(i);
+//            }
+//        });
 
 
         img90main.setOnClickListener(new View.OnClickListener() {
@@ -67,11 +177,9 @@ SharedPreferences.Editor editor;
 
 
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
+
+
+
 
         book1 = findViewById(R.id.book1);
         book2 = findViewById(R.id.book2);
@@ -85,6 +193,11 @@ SharedPreferences.Editor editor;
                 Intent goto1 = new Intent(MainActivity.this, BookDetails.class);
                 goto1.putExtra("bookindex", 0);
                 startActivity(goto1);
+
+                editor = sharedPreferences.edit();
+                editor.putInt("sonkitabokundu", 1);
+                editor.commit();
+
             }
         });
 
@@ -94,6 +207,9 @@ SharedPreferences.Editor editor;
                 Intent goto2 = new Intent(MainActivity.this, BookDetails.class);
                 goto2.putExtra("bookindex", 1);
                 startActivity(goto2);
+                editor = sharedPreferences.edit();
+                editor.putInt("sonkitabokundu", 2);
+                editor.commit();
             }
         });
 
@@ -103,6 +219,9 @@ SharedPreferences.Editor editor;
                 Intent goto3 = new Intent(MainActivity.this, BookDetails.class);
                 goto3.putExtra("bookindex", 2);
                 startActivity(goto3);
+                editor = sharedPreferences.edit();
+                editor.putInt("sonkitabokundu", 3);
+                editor.commit();
             }
         });
 
@@ -112,6 +231,9 @@ SharedPreferences.Editor editor;
                 Intent goto4 = new Intent(MainActivity.this, BookDetails.class);
                 goto4.putExtra("bookindex", 3);
                 startActivity(goto4);
+                editor = sharedPreferences.edit();
+                editor.putInt("sonkitabokundu", 4);
+                editor.commit();
             }
         });
 
@@ -121,6 +243,9 @@ SharedPreferences.Editor editor;
                 Intent goto4 = new Intent(MainActivity.this, BookDetails.class);
                 goto4.putExtra("bookindex", 4);
                 startActivity(goto4);
+                editor = sharedPreferences.edit();
+                editor.putInt("sonkitabokundu", 5);
+                editor.commit();
             }
         });
 
@@ -198,5 +323,62 @@ SharedPreferences.Editor editor;
         editor.putBoolean("isbackpressed", true);
         editor.commit();
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sonkitabokundu = sharedPreferences.getInt("sonkitabokundu",0);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // 0 /1 /2 /3 /4
+        ensonkitap = sharedPreferences.getInt("ensonhangikitabsecildi",-1);
+        // 0 /1 /2 /3 /4 / 5 /6 /7 /8 /9 ..........
+        ensonkonu = sharedPreferences.getInt("ensonokunankonu",-1);
+
+        if (ensonkitap>=0){
+            imgsonokuma.setVisibility(View.VISIBLE);
+        }
+
+        sonkitabokundu = sharedPreferences.getInt("sonkitabokundu",0);
+        if (sonkitabokundu>0){
+            if (sonkitabokundu==1){
+                txt1.setTextColor(getResources().getColor(R.color.green));
+                txt2.setTextColor(getResources().getColor(R.color.white));
+                txt3.setTextColor(getResources().getColor(R.color.white));
+                txt4.setTextColor(getResources().getColor(R.color.white));
+                txt5.setTextColor(getResources().getColor(R.color.white));
+            } else if (sonkitabokundu==2) {
+                txt1.setTextColor(getResources().getColor(R.color.white));
+                txt2.setTextColor(getResources().getColor(R.color.green));
+                txt3.setTextColor(getResources().getColor(R.color.white));
+                txt4.setTextColor(getResources().getColor(R.color.white));
+                txt5.setTextColor(getResources().getColor(R.color.white));
+            } else if (sonkitabokundu==3) {
+                txt1.setTextColor(getResources().getColor(R.color.white));
+                txt2.setTextColor(getResources().getColor(R.color.white));
+                txt3.setTextColor(getResources().getColor(R.color.green));
+                txt4.setTextColor(getResources().getColor(R.color.white));
+                txt5.setTextColor(getResources().getColor(R.color.white));
+            }else if (sonkitabokundu==4) {
+                txt1.setTextColor(getResources().getColor(R.color.white));
+                txt2.setTextColor(getResources().getColor(R.color.white));
+                txt3.setTextColor(getResources().getColor(R.color.white));
+                txt4.setTextColor(getResources().getColor(R.color.green));
+                txt5.setTextColor(getResources().getColor(R.color.white));
+            }else if (sonkitabokundu==5) {
+                txt1.setTextColor(getResources().getColor(R.color.white));
+                txt2.setTextColor(getResources().getColor(R.color.white));
+                txt3.setTextColor(getResources().getColor(R.color.white));
+                txt4.setTextColor(getResources().getColor(R.color.white));
+                txt5.setTextColor(getResources().getColor(R.color.green));
+            }
+
+
+        }
     }
 }

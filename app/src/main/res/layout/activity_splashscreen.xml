@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splashback"
-    android:fitsSystemWindows="true"
-    tools:context=".Splashscreen">
+    android:fitsSystemWindows="true">
 
     <ProgressBar
         android:id="@+id/progressBar2"

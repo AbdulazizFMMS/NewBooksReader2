@@ -29,8 +29,8 @@ import com.google.android.material.imageview.ShapeableImageView;
 //import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 public class BookDetails extends AppCompatActivity {
-    AdRequest adRequest;
-    private InterstitialAd mInterstitialAd;
+
+
     ShapeableImageView bookimage;
     TextView name, desc, pages;
     Button readbookbtn , btnshare;
@@ -43,34 +43,9 @@ public class BookDetails extends AppCompatActivity {
         setContentView(R.layout.activity_book_details);
 
 
-        adRequest = new AdRequest.Builder().build();
 
 
-        // TODO: Add interstitial to your view hierarchy.
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
 
-
-        InterstitialAd.load(this,getResources().getString(R.string.myinterstitial), adRequest,
-        new InterstitialAdLoadCallback() {
-      @Override
-      public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-        // The mInterstitialAd reference will be null until
-        // an ad is loaded.
-        mInterstitialAd = interstitialAd;
-        Log.i(TAG, "onAdLoaded");
-      }
-
-      @Override
-      public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-        // Handle the error
-        Log.d(TAG, loadAdError.toString());
-        mInterstitialAd = null;
-      }
-    });
 
 
 
@@ -99,11 +74,7 @@ public class BookDetails extends AppCompatActivity {
             readbookbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (mInterstitialAd != null) {
-                        mInterstitialAd.show(BookDetails.this);
-                    } else {
-                        Log.d("TAG", "The interstitial ad wasn't ready yet.");
-                    }
+
                     Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
                     intent.putExtra("openbook", 0);
                     startActivity(intent);
@@ -123,12 +94,6 @@ public class BookDetails extends AppCompatActivity {
             readbookbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    if (mInterstitialAd != null) {
-                        mInterstitialAd.show(BookDetails.this);
-                    } else {
-                        Log.d("TAG", "The interstitial ad wasn't ready yet.");
-                    }
 
                     Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
                     intent.putExtra("openbook", 1);
@@ -156,12 +121,6 @@ public class BookDetails extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    if (mInterstitialAd != null) {
-                        mInterstitialAd.show(BookDetails.this);
-                    } else {
-                        Log.d("TAG", "The interstitial ad wasn't ready yet.");
-                    }
-
                     Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
                     intent.putExtra("openbook", 2);
                     startActivity(intent);
@@ -186,11 +145,6 @@ public class BookDetails extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    if (mInterstitialAd != null) {
-                        mInterstitialAd.show(BookDetails.this);
-                    } else {
-                        Log.d("TAG", "The interstitial ad wasn't ready yet.");
-                    }
 
                     Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
                     intent.putExtra("openbook", 3);
@@ -219,12 +173,6 @@ public class BookDetails extends AppCompatActivity {
             readbookbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    if (mInterstitialAd != null) {
-                        mInterstitialAd.show(BookDetails.this);
-                    } else {
-                        Log.d("TAG", "The interstitial ad wasn't ready yet.");
-                    }
 
                     Intent intent = new Intent(BookDetails.this,  RecyclerviewKonular.class);
                     intent.putExtra("openbook", 4);

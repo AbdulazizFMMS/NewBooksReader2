@@ -13,6 +13,7 @@
     android:gravity="center|center_horizontal">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardclicked"
         android:layout_margin="8dp"
         app:cardCornerRadius="25dp"
         android:layout_width="match_parent"

@@ -1,15 +1,28 @@
 <resources>
-    <string name="app_name">تعلم كيف توقف الإباحية</string>
+    <string name="app_name">تعلم كيف ؟</string>
     <string name="sayac_name">تحدي ال 90 يوم</string>
 
-    <!--orjinal-->
+
+
+
+
+<!--    orjinal ads-->
     <string name="AdmobId">ca-app-pub-1564784655727854~5701507914</string>
     <string name="mybanner">ca-app-pub-1564784655727854/2429026055</string>
-    <!--orjinal-->
-    <string name="myinterstitial">ca-app-pub-1564784655727854/8000916932</string>
+    <string name="mybannerAlarm">ca-app-pub-1564784655727854/1524501204</string>
+<!--    <string name="myinterstitial">ca-app-pub-1564784655727854/8000916932</string>-->
     <string name="myinterstitialsayac">ca-app-pub-1564784655727854/7345854937</string>
-
+    <string name="myinterstitialnasheeds">ca-app-pub-1564784655727854/5580231131</string>
     <string name="AppOpenAd">ca-app-pub-1564784655727854/4563230188</string>
+
+
+<!--    test ads -->
+<!--         <string name="AdmobId">ca-app-pub-3940256099942544~3347511713</string>-->
+<!--    <string name="mybanner">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="myinterstitial">ca-app-pub-3940256099942544/1033173712</string>-->
+<!--    <string name="myinterstitialsayac">ca-app-pub-3940256099942544/1033173712</string>-->
+<!--    <string name="myinterstitialnasheeds">ca-app-pub-3940256099942544/1033173712</string>-->
+<!--    <string name="AppOpenAd">ca-app-pub-3940256099942544/3419835294</string>-->
 
 
     <string name="no_cardetails">اضغط على زر الاضافة بالاسفل لإنشاء مذكرة</string>
@@ -171,6 +184,10 @@
     <string name="konu510">10- الخطوة السابعة: الشفافیة الكاملة .... (3 صفحات)</string>
     <string name="konu511">11- أعراض إنسحابیة قد تنتابك عند ترك الإباحیة.. فكیف تتعامل معھا ؟  .... (6 صفحات)</string>
     <string name="konu512">12- سؤال وجواب .... (14 صفحات)</string>
+    <string name="besincikitap">الخطوات السبعة للشفاء\n من إدمان الإباحیة</string>
+    <string name="dorduncukitap">هوايات وعادات كيف\n نحارب الإباحية</string>
+    <string name="ikincikitap">سبیل التعافي من\n إدمان الإباحیة</string>
+    <string name="ucunucukitap">كيف تقلع عن\nالاباحية للأبد</string>
 
 
 </resources>

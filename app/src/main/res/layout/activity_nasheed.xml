@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#424242"
-    tools:context=".NasheedActivity">
+    android:background="#424242">
 
     <ImageView
         android:id="@+id/song_img"
@@ -19,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13999999"
-        app:srcCompat="@drawable/podcastplayer"
         android:contentDescription="TODO" />
 
     <TextView

@@ -4,14 +4,14 @@ plugins {
 
 android {
     namespace 'com.mofidx.mykutupapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.mofidx.mykutupapp"
         minSdk 21
-        targetSdk 33
-        versionCode 3
-        versionName "3.0"
+        targetSdk 34
+        versionCode 6
+        versionName "4.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,17 +35,19 @@ dependencies {
     implementation 'com.wrapp.floatlabelededittext:library:0.0.6'
     implementation 'joda-time:joda-time:2.12.4'
     implementation 'com.github.rosenpin:fading-text-view:3.0'
-    implementation 'com.google.android.gms:play-services-ads:22.0.0'
+    implementation 'com.google.android.gms:play-services-ads:23.2.0'
     implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    def lifecycle_version = "2.0.0"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-runtime:2.5.1"
+    implementation 'androidx.lifecycle:lifecycle-process:2.5.1'
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.5.1"
+
 
 }

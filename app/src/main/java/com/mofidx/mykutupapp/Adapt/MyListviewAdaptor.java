@@ -1,7 +1,12 @@
 package com.mofidx.mykutupapp.Adapt;
 
+import static android.content.ContentValues.TAG;
+
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +14,26 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.mofidx.mykutupapp.PdfReader;
 import com.mofidx.mykutupapp.R;
+import com.mofidx.mykutupapp.RecyclerviewKonular;
 
 import java.util.ArrayList;
 
 public class MyListviewAdaptor extends BaseAdapter {
+
+//    public static InterstitialAd mmInterstitialAd;
     int hangikitab;
+    int theposi;
     String []posi1_readed={"posi11","posi12","posi13","posi14","posi15","posi16","posi17","posi18","posi19"
             ,"posi110","posi111","posi112","posi113","posi114","posi115","posi116","posi117","posi118","posi119"};
 
@@ -32,6 +51,7 @@ public class MyListviewAdaptor extends BaseAdapter {
 
     Context context ;
     SharedPreferences sharedPreferences=null;
+    SharedPreferences.Editor editor;
     ArrayList<String> arrayList = new ArrayList<>();
 
     public MyListviewAdaptor(Context c, SharedPreferences sharedPreferences, ArrayList<String> arrayList,int hangikitab) {
@@ -39,6 +59,7 @@ public class MyListviewAdaptor extends BaseAdapter {
         this.sharedPreferences = sharedPreferences;
         this.arrayList = arrayList;
         this.hangikitab = hangikitab;
+//        loadAd();
     }
 
     @Override
@@ -64,9 +85,29 @@ public class MyListviewAdaptor extends BaseAdapter {
         }
         TextView tv = v.findViewById(R.id.recycle_title1);
         ImageView imgreaded = v.findViewById(R.id.readedimg);
+        CardView cardView = v.findViewById(R.id.cardlistviewforclick);
         String s = arrayList.get(position);
         tv.setText(s);
 
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                theposi = position;
+
+                gotothecontent();
+
+//                if (theposi%2 == 0 || theposi == 1){
+//                    if (mmInterstitialAd != null) {
+//                        mmInterstitialAd.show((Activity) context);
+//                    } else {
+//                        Log.d("TAG", "The interstitial ad wasn't ready yet.");
+//                    }
+//
+//                }
+
+
+            }
+        });
 
 
         if (hangikitab==0){
@@ -116,5 +157,120 @@ public class MyListviewAdaptor extends BaseAdapter {
 
 
         return v;
+    }
+
+
+
+//    private void loadAd(){
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//
+//
+//        InterstitialAd.load(context,context.getResources().getString(R.string.myinterstitial), adRequest,
+//                new InterstitialAdLoadCallback() {
+//                    @Override
+//                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+//                        // The mInterstitialAd reference will be null until
+//                        // an ad is loaded.
+//                        mmInterstitialAd = interstitialAd;
+//                        Log.i(TAG, "onAdLoaded");
+//
+//                        mmInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+//
+//                            @Override
+//                            public void onAdDismissedFullScreenContent() {
+//                                // Called when ad is dismissed.
+//                                // Set the ad reference to null so you don't show the ad a second time.
+//                                Log.d(TAG, "Ad dismissed fullscreen content.");
+//
+//                                loadAd();
+//
+//                            }
+//
+//                            @Override
+//                            public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+//                                super.onAdFailedToShowFullScreenContent(adError);
+//
+//                                mmInterstitialAd = null;
+//
+//                            }
+//
+//                            @Override
+//                            public void onAdShowedFullScreenContent() {
+//                                // Called when ad is shown.
+//                                Log.d(TAG, "Ad showed fullscreen content.");
+//
+//                                mmInterstitialAd = null;
+//
+//                            }
+//                        });
+//
+//                    }
+//
+//
+//                    @Override
+//                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+//                        // Handle the error
+//                        Log.d(TAG, loadAdError.toString());
+//                        mmInterstitialAd = null;
+//                    }
+//                });
+//
+//
+//    }
+
+    private void gotothecontent() {
+        if (hangikitab==0){
+            editor = sharedPreferences.edit();
+            editor.putInt(posi1_readed[theposi], theposi);
+            editor.putInt("ensonhangikitabsecildi",hangikitab);
+            editor.commit();
+            Intent intent1 = new Intent(context, PdfReader.class);
+            intent1.putExtra("posi_key1", theposi);
+            intent1.putExtra("birsecildimi",true);
+            context.startActivity(intent1);
+        }
+
+        if (hangikitab==1){
+            editor = sharedPreferences.edit();
+            editor.putInt(posi2_readed[theposi], theposi);
+            editor.putInt("ensonhangikitabsecildi",hangikitab);
+            editor.commit();
+            Intent intent1 = new Intent(context, PdfReader.class);
+            intent1.putExtra("posi_key2", theposi);
+            intent1.putExtra("ikisecildimi",true);
+            context.startActivity(intent1);
+        }
+        if (hangikitab==2){
+            editor = sharedPreferences.edit();
+            editor.putInt(posi3_readed[theposi], theposi);
+            editor.putInt("ensonhangikitabsecildi",hangikitab);
+            editor.commit();
+            Intent intent1 = new Intent(context, PdfReader.class);
+            intent1.putExtra("posi_key3", theposi);
+            intent1.putExtra("ucsecildimi",true);
+
+            context.startActivity(intent1);
+        }
+        if (hangikitab==3){
+            editor = sharedPreferences.edit();
+            editor.putInt(posi4_readed[theposi], theposi);
+            editor.putInt("ensonhangikitabsecildi",hangikitab);
+            editor.commit();
+            Intent intent1 = new Intent(context, PdfReader.class);
+            intent1.putExtra("posi_key4", theposi);
+            intent1.putExtra("dortsecildimi",true);
+
+            context.startActivity(intent1);
+        }
+        if (hangikitab==4){
+            editor = sharedPreferences.edit();
+            editor.putInt(posi5_readed[theposi], theposi);
+            editor.putInt("ensonhangikitabsecildi",hangikitab);
+            editor.commit();
+            Intent intent1 = new Intent(context, PdfReader.class);
+            intent1.putExtra("posi_key5", theposi);
+            intent1.putExtra("bessecildimi",true);
+            context.startActivity(intent1);
+        }
     }
 }
